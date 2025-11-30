@@ -11,9 +11,10 @@ env/
 # Configuration files
 config.ini
 
-# Generated images (allow the directory but not specific files)
+# Generated images (allow SVG files to be committed)
 img/*
 !img/.gitkeep
+!img/*.svg
 
 # IDE specific files
 .vscode/

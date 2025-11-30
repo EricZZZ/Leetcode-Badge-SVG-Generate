@@ -43,13 +43,30 @@ jobs:
         animated = $LEETCODE_ANIMATED
         EOF
         
+        echo "Configuration file created:"
+        cat config.ini
+        
         # Run main program
         python main.py
+        
+    - name: Check generated files
+      run: |
+        echo "Checking current directory:"
+        pwd
+        echo "Listing all files:"
+        ls -la
+        echo "Checking img directory:"
+        ls -la img/ || echo "img directory does not exist"
         
     - name: Commit and push SVG files
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add img/
-        git diff --staged --quiet || git commit -m "Update LeetCode badges SVG [$(date)]"
+        echo "Checking git status:"
+        git status
+        echo "Checking git diff:"
+        git diff --staged || echo "No staged changes"
+        git diff --staged --quiet || git commit -m "Update LeetCode badges SVG [$(date)]" || echo "Nothing to commit"
         git push
+      continue-on-error: true

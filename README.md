@@ -75,6 +75,21 @@ To allow the workflow to push changes to your repository, you need to configure 
 
 Alternatively, the workflow file includes a `permissions: contents: write` setting which should grant the necessary permissions.
 
+### Troubleshooting
+
+If the workflow runs successfully but no SVG files appear in the `img` directory, check the following:
+
+1. Make sure the `.gitignore` file allows SVG files to be committed:
+   ```
+   img/*
+   !img/.gitkeep
+   !img/*.svg
+   ```
+
+2. Verify that your LeetCode username is correct and has earned badges
+
+3. Check the workflow logs for any error messages during the badge fetching process
+
 ### How it works
 
 The workflow is scheduled to run weekly on Mondays at 00:00 UTC (8:00 AM Beijing time). It will:
