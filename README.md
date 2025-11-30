@@ -65,9 +65,19 @@ This project can be automatically run using GitHub Actions to regularly update y
    - `LEETCODE_SITE` (optional) - Either `leetcode.com` or `leetcode.cn` (defaults to `leetcode.com`)
    - `LEETCODE_ANIMATED` (optional) - `true` or `false` (defaults to `false`)
 
+### Permissions
+
+To allow the workflow to push changes to your repository, you need to configure permissions:
+
+1. Go to your repository's "Settings" > "Actions" > "General"
+2. Under "Workflow permissions", select "Read and write permissions"
+3. Click "Save"
+
+Alternatively, the workflow file includes a `permissions: contents: write` setting which should grant the necessary permissions.
+
 ### How it works
 
-The workflow is scheduled to run daily at 00:00 UTC (8:00 AM Beijing time). It will:
+The workflow is scheduled to run weekly on Mondays at 00:00 UTC (8:00 AM Beijing time). It will:
 1. Checkout your repository
 2. Set up Python environment
 3. Install dependencies

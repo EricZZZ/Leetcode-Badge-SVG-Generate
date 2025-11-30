@@ -7,6 +7,10 @@ on:
   workflow_dispatch:
     # Allow manual triggering
 
+# Add permissions for the workflow
+permissions:
+  contents: write
+
 jobs:
   generate-svg:
     runs-on: ubuntu-latest
