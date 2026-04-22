@@ -2,8 +2,8 @@ name: Generate LeetCode Badges SVG
 
 on:
   schedule:
-    # Run every 7 days on Monday at 00:00 UTC (8:00 AM Beijing time)
-    - cron: '0 0 * * 1'
+    # Run every month at 00:00 UTC (8:00 AM Beijing time)
+    - cron: '0 0 1 * *'
   workflow_dispatch:
     # Allow manual triggering
 
